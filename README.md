@@ -103,7 +103,7 @@ If you reference this work, please cite the project report (see `overleaf_ready/
 
 5ARIP10 ATWS Team Internship, TU/e, in collaboration with ASML.
 
-- Dimitris (Jim) Laspias
+- Dimitris Laspias
 - Srikar Narayan Rao Krishna Raja
 - Aleks Atanasov
 - Madhav Veluru
