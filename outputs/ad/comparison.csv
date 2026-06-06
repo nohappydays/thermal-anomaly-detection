@@ -1,0 +1,3 @@
+detector,n_normal,n_blocked,roc_auc,pr_auc,f1,precision,recall,threshold,delay_mean_s,delay_median_s,n_blocked_detected,n_blocked_total,delay_after_transition_mean_s,delay_after_transition_median_s,n_detected_after_transition,delay_sustained_mean_s,delay_sustained_median_s,n_detected_sustained
+PeakTmaxRule,4,4,1.0,1.0,1.0,1.0,1.0,44.9,354.0,361.5,4,4,354.0,361.5,4,372.75,375.5,4
+IsolationForest,4,4,1.0,1.0,1.0,1.0,1.0,0.44217072832852483,291.25,295.0,4,4,291.25,295.0,4,291.25,295.0,4

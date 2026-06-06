@@ -1,0 +1,248 @@
+{
+  "detector": "OneClassSVM",
+  "n_sessions": 20,
+  "n_normal": 12,
+  "n_blocked": 8,
+  "metrics": {
+    "roc_auc": 0.8541666666666666,
+    "pr_auc": 0.777281746031746,
+    "threshold": 0.1897144694129921,
+    "precision": 0.7777777777777778,
+    "recall": 0.875,
+    "f1": 0.8235294117647058
+  },
+  "delay": {
+    "n_blocked_detected": 6,
+    "n_blocked_total": 8,
+    "delay_mean_s": 430.1666666666667,
+    "delay_median_s": 433.0,
+    "delay_min_s": 308.0,
+    "delay_max_s": 559.0,
+    "raw": {
+      "n_detected": 6,
+      "n_total": 8,
+      "mean_s": 430.1666666666667,
+      "median_s": 433.0,
+      "min_s": 308.0,
+      "max_s": 559.0
+    },
+    "after_transition": {
+      "n_detected": 6,
+      "n_total": 8,
+      "mean_s": 430.1666666666667,
+      "median_s": 433.0,
+      "min_s": 308.0,
+      "max_s": 559.0
+    },
+    "sustained": {
+      "n_detected": 6,
+      "n_total": 8,
+      "mean_s": 430.1666666666667,
+      "median_s": 433.0,
+      "min_s": 308.0,
+      "max_s": 559.0
+    }
+  },
+  "folds": [
+    {
+      "fold_idx": 0,
+      "session_id": "S001_2026-06-01_toshiba_normal_22C_a",
+      "condition": "normal",
+      "session_score": 0.29115778086740557,
+      "detection_delay_s": -1.0,
+      "detection_delay_after_transition_s": -1.0,
+      "detection_delay_sustained_s": -1.0,
+      "frame_threshold": 6.597777777777772
+    },
+    {
+      "fold_idx": 1,
+      "session_id": "S009_2026-06-02_toshiba_normal_24C_a",
+      "condition": "normal",
+      "session_score": 0.17081234552272487,
+      "detection_delay_s": -1.0,
+      "detection_delay_after_transition_s": -1.0,
+      "detection_delay_sustained_s": -1.0,
+      "frame_threshold": 8.127833333333328
+    },
+    {
+      "fold_idx": 2,
+      "session_id": "S010_2026-06-02_toshiba_normal_24C_a",
+      "condition": "normal",
+      "session_score": 0.009128666329413171,
+      "detection_delay_s": -1.0,
+      "detection_delay_after_transition_s": -1.0,
+      "detection_delay_sustained_s": -1.0,
+      "frame_threshold": 8.127833333333328
+    },
+    {
+      "fold_idx": 3,
+      "session_id": "S011_2026-06-02_toshiba_normal_24C_a",
+      "condition": "normal",
+      "session_score": -0.013178671198015302,
+      "detection_delay_s": -1.0,
+      "detection_delay_after_transition_s": -1.0,
+      "detection_delay_sustained_s": -1.0,
+      "frame_threshold": 8.127833333333328
+    },
+    {
+      "fold_idx": 4,
+      "session_id": "S012_2026-06-02_toshiba_normal_24C_a",
+      "condition": "normal",
+      "session_score": -0.013520109687272963,
+      "detection_delay_s": -1.0,
+      "detection_delay_after_transition_s": -1.0,
+      "detection_delay_sustained_s": -1.0,
+      "frame_threshold": 8.127833333333328
+    },
+    {
+      "fold_idx": 5,
+      "session_id": "S013_2026-06-02_toshiba_normal_24C_a",
+      "condition": "normal",
+      "session_score": 0.1979090187587229,
+      "detection_delay_s": -1.0,
+      "detection_delay_after_transition_s": -1.0,
+      "detection_delay_sustained_s": -1.0,
+      "frame_threshold": 8.127833333333328
+    },
+    {
+      "fold_idx": 6,
+      "session_id": "S014_2026-06-02_toshiba_normal_24C_a",
+      "condition": "normal",
+      "session_score": -0.01260051191480388,
+      "detection_delay_s": -1.0,
+      "detection_delay_after_transition_s": -1.0,
+      "detection_delay_sustained_s": -1.0,
+      "frame_threshold": 8.127833333333328
+    },
+    {
+      "fold_idx": 7,
+      "session_id": "S016_2026-06-02_toshiba_normal_27C_a",
+      "condition": "normal",
+      "session_score": 0.0016678684053286763,
+      "detection_delay_s": -1.0,
+      "detection_delay_after_transition_s": -1.0,
+      "detection_delay_sustained_s": -1.0,
+      "frame_threshold": 6.597777777777772
+    },
+    {
+      "fold_idx": 8,
+      "session_id": "S017_2026-06-02_toshiba_normal_28C_a",
+      "condition": "normal",
+      "session_score": 0.052311313723140906,
+      "detection_delay_s": -1.0,
+      "detection_delay_after_transition_s": -1.0,
+      "detection_delay_sustained_s": -1.0,
+      "frame_threshold": 6.597777777777772
+    },
+    {
+      "fold_idx": 9,
+      "session_id": "S018_2026-06-02_toshiba_normal_28C_a",
+      "condition": "normal",
+      "session_score": 0.03842362353147344,
+      "detection_delay_s": -1.0,
+      "detection_delay_after_transition_s": -1.0,
+      "detection_delay_sustained_s": -1.0,
+      "frame_threshold": 6.597777777777772
+    },
+    {
+      "fold_idx": 10,
+      "session_id": "S019_2026-06-02_toshiba_normal_28C_a",
+      "condition": "normal",
+      "session_score": -0.028561843818754817,
+      "detection_delay_s": -1.0,
+      "detection_delay_after_transition_s": -1.0,
+      "detection_delay_sustained_s": -1.0,
+      "frame_threshold": 6.597777777777772
+    },
+    {
+      "fold_idx": 11,
+      "session_id": "S020_2026-06-02_toshiba_normal_28C_a",
+      "condition": "normal",
+      "session_score": -0.023878588046769456,
+      "detection_delay_s": -1.0,
+      "detection_delay_after_transition_s": -1.0,
+      "detection_delay_sustained_s": -1.0,
+      "frame_threshold": 6.597777777777772
+    },
+    {
+      "fold_idx": 12,
+      "session_id": "S001_2026_05_31_toshiba_faulty_27C_a",
+      "condition": "blocked",
+      "session_score": 0.3201513090691398,
+      "detection_delay_s": -1.0,
+      "detection_delay_after_transition_s": -1.0,
+      "detection_delay_sustained_s": -1.0,
+      "frame_threshold": 7.36280555555555
+    },
+    {
+      "fold_idx": 13,
+      "session_id": "S002_2026-06-01_toshiba_faulty_27C_a.csv",
+      "condition": "blocked",
+      "session_score": 0.22953515669596203,
+      "detection_delay_s": -1.0,
+      "detection_delay_after_transition_s": -1.0,
+      "detection_delay_sustained_s": -1.0,
+      "frame_threshold": 7.36280555555555
+    },
+    {
+      "fold_idx": 14,
+      "session_id": "S003_2026-06-01_toshiba_faulty_28C_a",
+      "condition": "blocked",
+      "session_score": 0.2085753109675214,
+      "detection_delay_s": 445.0,
+      "detection_delay_after_transition_s": 445.0,
+      "detection_delay_sustained_s": 445.0,
+      "frame_threshold": 7.36280555555555
+    },
+    {
+      "fold_idx": 15,
+      "session_id": "S004_2026-06-01_toshiba_faulty_29C_a",
+      "condition": "blocked",
+      "session_score": 0.24739440867642687,
+      "detection_delay_s": 436.0,
+      "detection_delay_after_transition_s": 436.0,
+      "detection_delay_sustained_s": 436.0,
+      "frame_threshold": 7.36280555555555
+    },
+    {
+      "fold_idx": 16,
+      "session_id": "S005_2026-06-01_toshiba_faulty_30C_a",
+      "condition": "blocked",
+      "session_score": 0.27557457650126055,
+      "detection_delay_s": 559.0,
+      "detection_delay_after_transition_s": 559.0,
+      "detection_delay_sustained_s": 559.0,
+      "frame_threshold": 7.36280555555555
+    },
+    {
+      "fold_idx": 17,
+      "session_id": "S006_2026-06-01_toshiba_faulty_30C_a",
+      "condition": "blocked",
+      "session_score": 0.2504049666591432,
+      "detection_delay_s": 403.0,
+      "detection_delay_after_transition_s": 403.0,
+      "detection_delay_sustained_s": 403.0,
+      "frame_threshold": 7.36280555555555
+    },
+    {
+      "fold_idx": 18,
+      "session_id": "S007_2026-06-01_toshiba_faulty_28C_a",
+      "condition": "blocked",
+      "session_score": -0.005860813458280101,
+      "detection_delay_s": 308.0,
+      "detection_delay_after_transition_s": 308.0,
+      "detection_delay_sustained_s": 308.0,
+      "frame_threshold": 7.36280555555555
+    },
+    {
+      "fold_idx": 19,
+      "session_id": "S008_2026-06-01_toshiba_faulty_28C_a",
+      "condition": "blocked",
+      "session_score": 0.1897144694129921,
+      "detection_delay_s": 430.0,
+      "detection_delay_after_transition_s": 430.0,
+      "detection_delay_sustained_s": 430.0,
+      "frame_threshold": 7.36280555555555
+    }
+  ]
+}

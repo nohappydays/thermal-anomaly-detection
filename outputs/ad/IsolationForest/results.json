@@ -1,0 +1,128 @@
+{
+  "detector": "IsolationForest",
+  "n_sessions": 8,
+  "n_normal": 4,
+  "n_blocked": 4,
+  "metrics": {
+    "roc_auc": 1.0,
+    "pr_auc": 1.0,
+    "threshold": 0.44217072832852483,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  },
+  "delay": {
+    "n_blocked_detected": 4,
+    "n_blocked_total": 4,
+    "delay_mean_s": 291.25,
+    "delay_median_s": 295.0,
+    "delay_min_s": 265.0,
+    "delay_max_s": 310.0,
+    "raw": {
+      "n_detected": 4,
+      "n_total": 4,
+      "mean_s": 291.25,
+      "median_s": 295.0,
+      "min_s": 265.0,
+      "max_s": 310.0
+    },
+    "after_transition": {
+      "n_detected": 4,
+      "n_total": 4,
+      "mean_s": 291.25,
+      "median_s": 295.0,
+      "min_s": 265.0,
+      "max_s": 310.0
+    },
+    "sustained": {
+      "n_detected": 4,
+      "n_total": 4,
+      "mean_s": 291.25,
+      "median_s": 295.0,
+      "min_s": 265.0,
+      "max_s": 310.0
+    }
+  },
+  "folds": [
+    {
+      "fold_idx": 0,
+      "session_id": "S001_normal_s",
+      "condition": "normal",
+      "session_score": 0.40603529442745084,
+      "detection_delay_s": -1.0,
+      "detection_delay_after_transition_s": -1.0,
+      "detection_delay_sustained_s": -1.0,
+      "frame_threshold": 15.965972222222213
+    },
+    {
+      "fold_idx": 1,
+      "session_id": "S002_normal_s",
+      "condition": "normal",
+      "session_score": 0.37467839049618806,
+      "detection_delay_s": -1.0,
+      "detection_delay_after_transition_s": -1.0,
+      "detection_delay_sustained_s": -1.0,
+      "frame_threshold": 14.381938888888884
+    },
+    {
+      "fold_idx": 2,
+      "session_id": "S003_normal_s",
+      "condition": "normal",
+      "session_score": 0.39454601802244177,
+      "detection_delay_s": -1.0,
+      "detection_delay_after_transition_s": -1.0,
+      "detection_delay_sustained_s": -1.0,
+      "frame_threshold": 14.381938888888884
+    },
+    {
+      "fold_idx": 3,
+      "session_id": "S004_normal_s",
+      "condition": "normal",
+      "session_score": 0.393415124932497,
+      "detection_delay_s": -1.0,
+      "detection_delay_after_transition_s": -1.0,
+      "detection_delay_sustained_s": -1.0,
+      "frame_threshold": 15.965972222222213
+    },
+    {
+      "fold_idx": 4,
+      "session_id": "S005_blocked_s",
+      "condition": "blocked",
+      "session_score": 0.44217072832852483,
+      "detection_delay_s": 310.0,
+      "detection_delay_after_transition_s": 310.0,
+      "detection_delay_sustained_s": 310.0,
+      "frame_threshold": 15.173955555555548
+    },
+    {
+      "fold_idx": 5,
+      "session_id": "S006_blocked_s",
+      "condition": "blocked",
+      "session_score": 0.4463281964323571,
+      "detection_delay_s": 295.0,
+      "detection_delay_after_transition_s": 295.0,
+      "detection_delay_sustained_s": 295.0,
+      "frame_threshold": 15.173955555555548
+    },
+    {
+      "fold_idx": 6,
+      "session_id": "S007_blocked_s",
+      "condition": "blocked",
+      "session_score": 0.44884141714376957,
+      "detection_delay_s": 265.0,
+      "detection_delay_after_transition_s": 265.0,
+      "detection_delay_sustained_s": 265.0,
+      "frame_threshold": 15.173955555555548
+    },
+    {
+      "fold_idx": 7,
+      "session_id": "S008_blocked_s",
+      "condition": "blocked",
+      "session_score": 0.46683470217299977,
+      "detection_delay_s": 295.0,
+      "detection_delay_after_transition_s": 295.0,
+      "detection_delay_sustained_s": 295.0,
+      "frame_threshold": 15.173955555555548
+    }
+  ]
+}
