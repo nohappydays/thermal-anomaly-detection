@@ -1,4 +1,4 @@
-"""Synthetic TCView-style sessions for smoke tests.
+"""Synthetic TopInfrared-style sessions for smoke tests.
 
 Why this exists
 ---------------
@@ -34,7 +34,7 @@ Blocked sessions differ from normal in three ways simultaneously
 
 The parameter ranges were calibrated against the May 12 Plane exports.
 
-Use the generator as a smoke-test or unit-test source only. Real TCView
+Use the generator as a smoke-test or unit-test source only. Real TopInfrared
 exports live in `data/csv/` and are used for the reported results.
 """
 
@@ -171,7 +171,7 @@ def generate_session(
     )
     T_min = T_min_target + _pink_noise(n, params.pink_noise_amp_C * 0.4, rng) + rng.normal(0, params.noise_sigma_C * 0.5, n)
 
-    # Round to one decimal place — TCView export precision
+    # Round to one decimal place — TopInfrared export precision
     T_max = np.round(T_max, 1)
     T_min = np.round(T_min, 1)
 

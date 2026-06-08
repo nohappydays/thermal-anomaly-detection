@@ -1,18 +1,18 @@
-"""Parse TCView exports into the common DataFrame schema.
+"""Parse TopInfrared exports into the common DataFrame schema.
 
 Supported inputs:
-  * .xlsx  — saved from TCView (typical Excel team output)
+  * .xlsx  — saved from TopInfrared (typical Excel team output)
   * .csv   — already-converted exports
   * .numbers — Apple Numbers format (requires `numbers-parser`, optional)
 
-The TCView export format is:
+The TopInfrared export format is:
   Dot    : time | Temperature                            @ 1 Hz
   Plane  : time | Lowest Temperature | Highest Temperature @ 1 Hz
   Line   : time | <per-pixel columns>                    @ 1 Hz   (not seen yet)
 
 Usage:
-    from excel_loader import load_tcview
-    df = load_tcview("12May_CPUonly.xlsx", condition="C1", session_id="S001")
+    from excel_loader import load_TopInfrared
+    df = load_TopInfrared("12May_CPUonly.xlsx", condition="C1", session_id="S001")
 """
 
 from __future__ import annotations
@@ -57,8 +57,8 @@ def _parse_time(value) -> Optional[datetime]:
 
 
 @dataclass
-class TCViewExport:
-    """Validated, normalized TCView measurement export."""
+class TopInfraredExport:
+    """Validated, normalized TopInfrared measurement export."""
 
     df: pd.DataFrame
     mode: Literal["dot", "plane", "line", "unknown"]
@@ -114,13 +114,13 @@ def _detect_mode(columns: list[str]) -> Literal["dot", "plane", "line", "unknown
     return "unknown"
 
 
-def load_tcview(
+def load_TopInfrared(
     path: str | Path,
     condition: str = "UNLABELED",
     session_id: Optional[str] = None,
     laptop_id: str = "unknown",
-) -> TCViewExport:
-    """Load a TCView measurement export and return a validated TCViewExport.
+) -> TopInfraredExport:
+    """Load a TopInfrared measurement export and return a validated TopInfraredExport.
 
     The returned DataFrame is normalized to these columns:
       timestamp (datetime64[ns]), t_s (float, seconds from session start),
@@ -187,7 +187,7 @@ def load_tcview(
     duration_s = float(df["t_s"].iloc[-1] - df["t_s"].iloc[0])
     rate_hz = (len(df) - 1) / duration_s if duration_s > 0 else 0.0
 
-    return TCViewExport(
+    return TopInfraredExport(
         df=df,
         mode=mode,
         sample_rate_hz=rate_hz,
@@ -202,14 +202,14 @@ def load_tcview(
 
 def load_many(
     sources: list[dict],
-) -> list[TCViewExport]:
-    """Load multiple TCView exports.
+) -> list[TopInfraredExport]:
+    """Load multiple TopInfrared exports.
 
     `sources` is a list of dicts: {path, condition, session_id, laptop_id}.
     """
-    out: list[TCViewExport] = []
+    out: list[TopInfraredExport] = []
     for s in sources:
-        out.append(load_tcview(
+        out.append(load_TopInfrared(
             s["path"],
             condition=s.get("condition", "UNLABELED"),
             session_id=s.get("session_id"),
@@ -218,7 +218,7 @@ def load_many(
     return out
 
 
-def concat(exports: list[TCViewExport]) -> pd.DataFrame:
+def concat(exports: list[TopInfraredExport]) -> pd.DataFrame:
     """Stack multiple exports' DataFrames into one tidy long table."""
     return pd.concat([e.df for e in exports], ignore_index=True)
 
@@ -227,7 +227,7 @@ if __name__ == "__main__":
     import argparse
     import sys
 
-    p = argparse.ArgumentParser(description="Load and summarize TCView Excel/CSV exports")
+    p = argparse.ArgumentParser(description="Load and summarize TopInfrared Excel/CSV exports")
     p.add_argument("paths", nargs="+", type=Path)
     p.add_argument("--condition", default="UNLABELED")
     p.add_argument("--laptop", default="unknown")
@@ -242,7 +242,7 @@ if __name__ == "__main__":
 
     for path in args.paths:
         try:
-            exp = load_tcview(path, condition=args.condition, laptop_id=args.laptop)
+            exp = load_TopInfrared(path, condition=args.condition, laptop_id=args.laptop)
             print(exp.summary())
             print(exp.df.head(3).to_string(index=False))
             print(f"  T_max: mean={exp.df['T_max'].mean():.2f}  max={exp.df['T_max'].max():.2f}")

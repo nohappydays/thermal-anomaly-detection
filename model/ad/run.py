@@ -50,14 +50,14 @@ def _parse_filename_metadata(stem: str) -> dict:
 
 
 def _load_one_file(path: Path) -> pd.DataFrame:
-    """Load one .csv or TCView .xlsx session into the common schema."""
+    """Load one .csv or TopInfrared .xlsx session into the common schema."""
     meta = _parse_filename_metadata(path.stem)
     cond = meta.get("condition", "unknown")
 
     suffix = path.suffix.lower()
     if suffix == ".xlsx":
-        from model.excel_loader import load_tcview
-        exp = load_tcview(path, condition=cond, laptop_id="toshiba_a01",
+        from model.excel_loader import load_TopInfrared
+        exp = load_TopInfrared(path, condition=cond, laptop_id="toshiba_a01",
                           session_id=path.stem)
         df = exp.df.copy()
     elif suffix == ".csv":
@@ -172,7 +172,7 @@ def split_by_condition(sessions: list[pd.DataFrame]) -> tuple[list, list]:
     return normal, blocked
 
 def main(argv: list[str] | None = None) -> int:
-    p = argparse.ArgumentParser(description="Train + evaluate AD baselines on TCView Plane CSV/XLSX exports")
+    p = argparse.ArgumentParser(description="Train + evaluate AD baselines on TopInfrared Plane CSV/XLSX exports")
     src = p.add_mutually_exclusive_group(required=True)
     src.add_argument("--synthetic", action="store_true",
                      help="Generate synthetic dataset on the fly")

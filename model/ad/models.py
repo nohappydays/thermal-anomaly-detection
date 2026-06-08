@@ -1,4 +1,4 @@
-"""Detector implementations for anomaly detection on TCView Plane exports.
+"""Detector implementations for anomaly detection on TopInfrared Plane exports.
 
 Every detector exposes fit(), score_session(), score_frames(), and name.
 """

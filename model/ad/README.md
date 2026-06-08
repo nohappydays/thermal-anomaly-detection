@@ -1,6 +1,6 @@
 # Unsupervised Anomaly Detection (`model/ad/`)
 
-This sub-package implements the final CSV/XLSX anomaly-detection path: detect blocked-vent thermal anomalies from TCView **Plane exports** using detectors trained on normal sessions only.
+This sub-package implements the final CSV/XLSX anomaly-detection path: detect blocked-vent thermal anomalies from TopInfrared **Plane exports** using detectors trained on normal sessions only.
 
 ## Layout
 

@@ -6,7 +6,7 @@ Last updated: 2026-06-03 by Codex.
 
 ## Current Final-Report Scope
 
-- Input data: TCView Plane CSV/XLSX exports at 1 Hz.
+- Input data: TopInfrared Plane CSV/XLSX exports at 1 Hz.
 - Features used by the LSTM-VAE: `T_max`, `T_min`, and `T_range`.
 - Dataset used for reported results: 20 sessions after quality filtering, consisting of 12 normal and 8 blocked/faulty sessions.
 - Quarantined session: `data/csv/_QUARANTINE_S015_normal_24C.xlsx`.
@@ -245,7 +245,7 @@ For each implementation choice in the AD pipeline, this section records the defe
 
 Items where the defence is "standard practice" and no stronger argument exists:
 - `StandardScaler` for IF/OCSVM input features (sklearn-standard preprocessing for distance-based and tree-based models).
-- 1 Hz sample rate (TCView Plane export constraint, not a choice).
+- 1 Hz sample rate (TopInfrared Plane export constraint, not a choice).
 - LSTM-VAE reconstruction loss = MSE (vs Gaussian NLL, which would be equivalent for fixed variance).
 
 If a viva examiner asks about any of the above the answer is "standard practice; no domain-specific argument".

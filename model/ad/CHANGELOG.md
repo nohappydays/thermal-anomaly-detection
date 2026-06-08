@@ -38,7 +38,7 @@ These results were not automatically copied to `outputs/ad`:
 ## 2026-06-XX — Real-data loader (.xlsx + variable timing + cooldown)
 
 ### What changed
-The team's 20 recorded sessions arrived as **.xlsx** files (TCView Plane exports, columns "time / Lowest Temperature / Highest Temperature" with values like "23.4°C"), and the recording protocol shifted slightly without warning: each session now includes a 5-minute cooldown phase, and the actual phase boundaries vary by ±30 s per session because operators couldn't hit the stopwatch exactly.
+The team's 20 recorded sessions arrived as **.xlsx** files (TopInfrared Plane exports, columns "time / Lowest Temperature / Highest Temperature" with values like "23.4°C"), and the recording protocol shifted slightly without warning: each session now includes a 5-minute cooldown phase, and the actual phase boundaries vary by ±30 s per session because operators couldn't hit the stopwatch exactly.
 
 Four coordinated changes to handle this:
 

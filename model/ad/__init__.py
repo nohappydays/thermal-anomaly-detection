@@ -1,4 +1,4 @@
-"""Unsupervised anomaly detection for TCView Plane exports."""
+"""Unsupervised anomaly detection for TopInfrared Plane exports."""
 
 __version__ = "0.1.0"
 DEFAULT_SEED = 20260531

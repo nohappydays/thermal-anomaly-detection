@@ -1,6 +1,6 @@
 # Thermal Recording Protocol v2 — ASML Internship 5ARIP10
 
-> **Why v2?** The May 12 sessions revealed protocol issues that compromise the data: the CPU-only recording started already hot from a previous run (negative ramp slope), neither session contains a labeled C0 baseline, and TCView's auto-scaling palette risks decoding drift in the video. This protocol fixes all three.
+> **Why v2?** The May 12 sessions revealed protocol issues that compromise the data: the CPU-only recording started already hot from a previous run (negative ramp slope), neither session contains a labeled C0 baseline, and TopInfrared's auto-scaling palette risks decoding drift in the video. This protocol fixes all three.
 
 **Per-session deliverable:**
 1. One thermal video (.mp4)
@@ -29,11 +29,11 @@
 
 ---
 
-## 2. TCView configuration (5 min)
+## 2. TopInfrared configuration (5 min)
 
-**Critical:** TCView's auto-ranging palette is the largest single source of decoding error. Lock it before recording.
+**Critical:** TopInfrared's auto-ranging palette is the largest single source of decoding error. Lock it before recording.
 
-1. Open TCView, connect TC001 via USB-C
+1. Open TopInfrared, connect TC001 via USB-C
 2. **Lock the temperature range:**
    - Tap settings → measurement → choose "Manual range"
    - Set low = **15 °C**, high = **55 °C** (covers all expected conditions on the Toshiba)
@@ -43,9 +43,9 @@
    - Add a **Plane** covering the whole keyboard area + vents
    - Add a **Dot** at the expected hotspot (above the CPU)
    - Both must be inside the planned ROI — not over the scale bar
-5. Start a **measurement export** in TCView (it will write the .xlsx in the background at 1 Hz)
-6. Start the **screen recording** (phone) — show the full TCView interface including the scale bar
-7. **Always start the screen recording before TCView measurement so the video covers a superset of the export.**
+5. Start a **measurement export** in TopInfrared (it will write the .xlsx in the background at 1 Hz)
+6. Start the **screen recording** (phone) — show the full TopInfrared interface including the scale bar
+7. **Always start the screen recording before TopInfrared measurement so the video covers a superset of the export.**
 
 ---
 
@@ -54,7 +54,7 @@
 The laptop must start each session from a known thermal state. Skipping this step is what made the May 12 CPU-only data unusable.
 
 - Laptop must have been **powered off or idle (no foreground tasks) for ≥ 10 minutes** before the session begins
-- T_max from the TCView preview should be within **+2 °C of ambient** before you start recording
+- T_max from the TopInfrared preview should be within **+2 °C of ambient** before you start recording
 - If above that, wait longer (or turn the laptop off entirely for 5 min)
 - Record ambient + initial T_max in the session log
 
@@ -86,13 +86,13 @@ ambient_C:     22.5
 initial_T_max_C: 24.1
 camera_height_cm: 32
 camera_angle_deg: 90
-TCView_range_C: [15, 55]    # confirm you locked it
+TopInfrared_range_C: [15, 55]    # confirm you locked it
 operator:      Jim
 notes:         <anything unusual>
 
 Phase log (HH:MM:SS, t in seconds from video start):
   00:00:00  recording start
-  00:00:15  TCView measurement export started
+  00:00:15  TopInfrared measurement export started
   00:00:30  C0 baseline begin
   00:05:30  stress phase begin   <-- start your stressor command here
   00:18:30  stress phase end     <-- stop stressor
@@ -106,7 +106,7 @@ The phase timestamps go directly into the session config JSON's `phases` block.
 
 ## 6. Stop & file the data (5 min)
 
-1. Stop TCView measurement export — the .xlsx is now in TCView's Files folder
+1. Stop TopInfrared measurement export — the .xlsx is now in TopInfrared's Files folder
 2. Stop the phone screen recording
 3. **Immediately copy both files to your laptop** with a consistent name: `S001_C1_video.mp4` and `S001_C1_plane.xlsx`
 4. Open `model/configs/session_template.json`, save a copy as `model/configs/session_S001_C1.json`, fill in:
@@ -114,7 +114,7 @@ The phase timestamps go directly into the session config JSON's `phases` block.
    - `laptop` block (id, make, model, cpu, ram_gb, has_dedicated_gpu)
    - `condition` block (label, description, stressor, blockage_pct if applicable)
    - `phases` block (translate the times from your session log to seconds)
-   - `thermal_scale.t_min_c` and `t_max_c` (= 15 and 55 if you locked TCView per §2)
+   - `thermal_scale.t_min_c` and `t_max_c` (= 15 and 55 if you locked TopInfrared per §2)
    - `environment.ambient_temp_c` from your session log
 5. Run the calibration check: `python pipeline_v2.py calibrate --config configs/session_S001_C1.json` and visually verify ROI + scale bar in `processed/S001_C1/calib_overlay.png`
 6. If ROI is off, edit the JSON's `roi` block and re-run calibrate until it's right
@@ -168,7 +168,7 @@ The Toshiba's published thermal envelope tops out around 70 °C external for the
 Before adding a session to the dataset, check:
 
 - [ ] Initial T_max within +2 °C of ambient (pre-conditioning worked)
-- [ ] TCView palette range stayed locked throughout (no auto-scale events)
+- [ ] TopInfrared palette range stayed locked throughout (no auto-scale events)
 - [ ] Video and Excel cover the same time window (Excel ⊆ Video)
 - [ ] All three phases present (C0 baseline, stress, cooldown)
 - [ ] Stress phase is at least 10 min long
@@ -200,13 +200,13 @@ With ≥ 2 laptops this doubles, giving cross-laptop generalization data.
 ```
 PRE                                  RECORD
 □ Laptop off ≥10 min                 □ Phone screen-record START
-□ Ambient T noted                    □ TCView measurement START
+□ Ambient T noted                    □ TopInfrared measurement START
 □ Tripod fixed 30–35 cm above        □ C0 baseline 5 min
-□ TCView range LOCKED 15–55°C        □ Stressor START — note time
+□ TopInfrared range LOCKED 15–55°C        □ Stressor START — note time
 □ Plane + Dot overlays placed        □ Stressor 10–20 min
 □ Fiducial stickers on chassis       □ Stressor STOP — note time
 □ Session log file created           □ Cooldown 5 min
-                                     □ TCView STOP, phone STOP, copy files
+                                     □ TopInfrared STOP, phone STOP, copy files
 
 POST
 □ Fill session config JSON

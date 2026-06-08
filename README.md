@@ -50,8 +50,8 @@ Outputs land in `outputs/ad/`:
 │   │   ├── run.py                           CLI entry point
 │   │   ├── README.md                        sub-package design notes
 │   │   └── CHANGELOG.md                     code-change log with retraction notes
-│   └── excel_loader.py                    TCView .xlsx parser
-├── data/csv/                              20 recorded TCView Plane sessions + README
+│   └── excel_loader.py                    TopInfrared .xlsx parser
+├── data/csv/                              20 recorded TopInfrared Plane sessions + README
 ├── tests/                                 regression tests for the AD path
 ├── docs/
 │   ├── Technical_Model_Results_Log.md     defence-grade results + justifications
@@ -63,7 +63,7 @@ Outputs land in `outputs/ad/`:
 
 | Component | Choice | Notes |
 |---|---|---|
-| Sensor / format | TCView Plane (.xlsx) at 1 Hz | Per-frame min and max chassis temperature |
+| Sensor / format | TopInfrared Plane (.xlsx) at 1 Hz | Per-frame min and max chassis temperature |
 | Session length | 25 min (5 baseline + 15 stress + 5 cooldown) | 1500 samples after length normalisation |
 | Stress source | `mprep.info/gpu` (CPU + GPU load) | Operator-triggered, ±30 s timing slop |
 | Fault label | Vent obstruction with folded cloth | Filename uses `blocked` or `faulty` interchangeably |
@@ -83,7 +83,7 @@ See `docs/Technical_Model_Results_Log.md` for the full set of design-choice just
 
 ## Data
 
-The 20 recorded sessions live in `data/csv/` as TCView Plane `.xlsx` exports. See `data/csv/README.md` for the filename convention, recording protocol, column format, and notes on the quarantined S015 session.
+The 20 recorded sessions live in `data/csv/` as TopInfrared Plane `.xlsx` exports. See `data/csv/README.md` for the filename convention, recording protocol, column format, and notes on the quarantined S015 session.
 
 The recordings were taken on a single Toshiba laptop. **No ASML machine data was collected** — the laptop serves as a small-scale thermal proxy for the failure-mode pattern of interest (airflow obstruction → elevated steady-state surface temperature and slowed thermal time constant).
 

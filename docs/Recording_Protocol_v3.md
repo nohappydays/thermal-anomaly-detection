@@ -3,7 +3,7 @@
 > **Why v3?** After the 2026-05-28 team meeting the scope changed: one laptop, binary fault, CSV-only, ~20 sessions. v2 was written for the 5-condition video-based plan and is now obsolete. The final real-data run used a 5 min baseline + 15 min stress + 5 min cooldown structure, so this protocol records the current 25-minute session target.
 
 **Per-session deliverable:**
-1. One TCView Plane export CSV/XLSX covering the full 25-min session.
+1. One TopInfrared Plane export CSV/XLSX covering the full 25-min session.
 2. One short session log (plain text) with timing + ambient + notes.
 3. (Optional but recommended) the thermal video for backup and possible later post-hoc extraction.
 
@@ -19,9 +19,9 @@
 | Camera distance | **50 cm** above keyboard | Fixed framing across sessions |
 | Stressor | mprep.info/gpu (simultaneous CPU + GPU) | Single stressor, single click |
 | Stressor archive | `https://web.archive.org/web/<date>/https://mprep.info/gpu` | For methods-section citation |
-| TCView mode | Plane measurement, palette **locked at 15 – 70 °C** | Avoids saturation observed in pilots |
+| TopInfrared mode | Plane measurement, palette **locked at 15 – 70 °C** | Avoids saturation observed in pilots |
 | Plane region | Whole keyboard + vent strip | Captures heat field that drives T_max / T_min |
-| Sample rate | 1 Hz (TCView default for Plane) | Matches what the export gives us |
+| Sample rate | 1 Hz (TopInfrared default for Plane) | Matches what the export gives us |
 
 ---
 
@@ -29,14 +29,14 @@
 
 ### 1.1 Equipment setup (5 min)
 1. Verify camera is **50 cm above** the closed-lid plane of the laptop, lens centred on the keyboard, perpendicular to the surface.
-2. Connect TC001 to phone, launch TCView, lock palette range to **15 – 70 °C** (manual mode).
+2. Connect TC001 to phone, launch TopInfrared, lock palette range to **15 – 70 °C** (manual mode).
 3. Place the Plane overlay over the whole keyboard area + vent strip; do not move it once placed.
 4. Start screen recording on the phone (backup video — useful even though primary analysis is CSV).
 5. Note the **ambient temperature** with any thermometer or phone weather app (best-effort logging, even though the project treats ambient as noise).
 
 ### 1.2 Baseline phase (5 min, t = 0 – 300 s)
 1. Laptop idle, browser open to the stressor page but **not started**.
-2. Start TCView measurement export.
+2. Start TopInfrared measurement export.
 3. Note the wall-clock start time. The "session start" anchor is this moment, t = 0 s.
 4. Do not touch the laptop. Let it sit for the full 5 minutes.
 
@@ -47,7 +47,7 @@
 4. Click stop on the stressor page at exactly **t = 1200 s**.
 
 ### 1.4 Recorded cooldown phase (5 min, t = 1200 – 1500 s)
-1. Keep the TCView measurement export running while the laptop cools.
+1. Keep the TopInfrared measurement export running while the laptop cools.
 2. Leave the laptop untouched and unobstructed except that blocked-session tape may be removed only after the export stops.
 3. **Stop the measurement export at exactly t = 1500 s** (25 min total from session start).
 
@@ -69,16 +69,16 @@ condition:     normal | blocked         <-- BINARY, must be filled
 operator:      <name>
 ambient_C:     22.5                     <-- best effort, room thermometer or weather app
 stressor_link: https://mprep.info/gpu
-TCView_range:  [15, 70]                 <-- confirm locked
+TopInfrared_range:  [15, 70]                 <-- confirm locked
 camera_dist:   50 cm                    <-- confirm 50
 laptop_idle_before: 15 min              <-- thermal pre-conditioning
 notes:         <anything unusual>
 
 Phase timestamps (HH:MM:SS, wall clock; also t in seconds from baseline start):
-  00:00:00  t=0     baseline start, TCView export started
+  00:00:00  t=0     baseline start, TopInfrared export started
   00:05:00  t=300   stressor START (mprep.info/gpu click)
   00:20:00  t=1200  stressor STOP, cooldown START
-  00:25:00  t=1500  TCView export STOP
+  00:25:00  t=1500  TopInfrared export STOP
 ```
 
 These timestamps are pasted into the analysis script when labelling the phases.
@@ -102,7 +102,7 @@ These timestamps are pasted into the analysis script when labelling the phases.
 Stop the stress phase early if:
 - The Plane T_max reading exceeds **80 °C** (Toshiba thermal envelope ceiling).
 - The laptop fan produces abnormal sounds, or smell/smoke appears.
-- The phone running TCView is overheating.
+- The phone running TopInfrared is overheating.
 
 Early-stop sessions go in the session log with an `early_stopped_at: <t_seconds>` field. The recorded data may still be usable up to the stop point.
 
@@ -113,7 +113,7 @@ Early-stop sessions go in the session log with an `early_stopped_at: <t_seconds>
 Before adding a session to the dataset, check:
 
 - [ ] Baseline = 5 min, stress = 15 min, cooldown = 5 min, total = 25 min.
-- [ ] TCView palette stayed locked at 15 – 70 °C.
+- [ ] TopInfrared palette stayed locked at 15 – 70 °C.
 - [ ] Plane region didn't move mid-recording.
 - [ ] Camera at 50 cm, top-down throughout.
 - [ ] Session log filled in (especially `condition`, `ambient_C`, phase timestamps).
@@ -168,8 +168,8 @@ All authentic CSVs go to `data/csv/`; all synthetic CSVs go to `data/csv/synthet
 
 ```
 PRE                                  RECORD
-□ Camera 50 cm top-down              □ TCView measurement START (t=0)
-□ TCView range LOCKED 15-70°C        □ Baseline 5 min (idle)
+□ Camera 50 cm top-down              □ TopInfrared measurement START (t=0)
+□ TopInfrared range LOCKED 15-70°C        □ Baseline 5 min (idle)
 □ Plane overlay placed               □ mprep.info/gpu CLICK (t=300)
 □ Stressor page open, NOT started    □ Stress 15 min
 □ Ambient temp noted                 □ Stop stressor (t=1200)
