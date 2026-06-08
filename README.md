@@ -17,10 +17,6 @@ pip install -r requirements.txt
 # Sanity check: unit tests
 python -m unittest tests.test_ad_pipeline
 
-# Smoke test on synthetic data
-python -m model.ad.run --synthetic --n-normal 10 --n-blocked 10 \
-    --detector peak if ocsvm
-
 # Reproduce the reported results (~5 min on CPU, faster on GPU)
 python -m model.ad.run --data data/csv \
     --detector peak if ocsvm vae --epochs 100
