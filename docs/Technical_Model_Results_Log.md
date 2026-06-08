@@ -2,8 +2,6 @@
 
 Purpose: keep a focused record of the code, metrics, modelling choices, and technical defence points for the CSV-only anomaly-detection part of the project. This is separate from `CLAUDE_CONTEXT_LOG.md`, which tracks the whole project.
 
-Last updated: 2026-06-03 by Codex.
-
 ## Current Final-Report Scope
 
 - Input data: TopInfrared Plane CSV/XLSX exports at 1 Hz.
