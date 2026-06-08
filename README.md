@@ -49,7 +49,6 @@ Outputs land in `outputs/ad/`:
 │   └── excel_loader.py                    TopInfrared .xlsx parser
 ├── data/csv/                              20 recorded TopInfrared Plane sessions + README
 ├── tests/                                 regression tests for the AD path
-└── overleaf_ready/                        report .tex source + figures
 ```
 
 ## Method at a glance
