@@ -49,9 +49,6 @@ Outputs land in `outputs/ad/`:
 │   └── excel_loader.py                    TopInfrared .xlsx parser
 ├── data/csv/                              20 recorded TopInfrared Plane sessions + README
 ├── tests/                                 regression tests for the AD path
-├── docs/
-│   ├── Technical_Model_Results_Log.md     defence-grade results + justifications
-│   └── Recording_Protocol_v2.md           experiment protocol
 └── overleaf_ready/                        report .tex source + figures
 ```
 
@@ -68,7 +65,6 @@ Outputs land in `outputs/ad/`:
 | Headline metric | ROC-AUC | Class proportion is an experimental artifact, not a deployment prior |
 | Delay metric | Three variants | raw / after-transition (200 s) / sustained (30 consecutive frames) |
 
-See `docs/Technical_Model_Results_Log.md` for the full set of design-choice justifications and `model/ad/CHANGELOG.md` for the per-change retraction notes.
 
 ## Reproducibility
 
