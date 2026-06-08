@@ -86,9 +86,6 @@ python -m unittest tests.test_ad_pipeline
 
 Covers metric helpers, all three delay variants, the Peak-T_max baseline, and deterministic LSTM-VAE scoring.
 
-## Citation
-
-If you reference this work, please cite the project report (see `overleaf_ready/report.tex`).
 
 ## Authors
 
