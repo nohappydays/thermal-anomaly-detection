@@ -2,7 +2,7 @@
 
 > **Project**: 5ARIP10 ATWS Team Internship, TU/e (Q3 → Q4 2026), in collaboration with ASML.
 
-Detect blocked-vent thermal anomalies from infrared surface-temperature recordings of a Toshiba laptop under controlled stress, used as a proxy for an ASML machine subsystem. The pipeline trains four unsupervised detectors (Peak T_max rule, Isolation Forest, One-Class SVM, LSTM-VAE) on normal sessions only and evaluates them under leave-one-session-out cross-validation.
+Detect thermal anomalies from infrared surface-temperature recordings of a Toshiba laptop under controlled stress, used as a proxy for an ASML machine subsystem. The pipeline trains four unsupervised detectors (Peak T_max rule, Isolation Forest, One-Class SVM, LSTM-VAE) on normal session data only and evaluates them under leave-one-session-out cross-validation.
 
 ## Quick start
 
